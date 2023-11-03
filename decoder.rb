@@ -6,15 +6,15 @@ def decode_morse(morse_code)
                       '..-' => 'U', '...-' => 'V', '.--' => 'W', '-..-' => 'X', '-.--' => 'Y',
                       '--..' => 'Z', '-----' => '0', '.----' => '1', '..---' => '2', '...--' => '3',
                       '....-' => '4', '.....' => '5', '-....' => '6', '--...' => '7', '---..' => '8',
-                      '----.' => '9', '-.-.--' => '!', '...---...' => 'SOS', '   ' => ' '}
-  
+                      '----.' => '9', '-.-.--' => '!', '...---...' => 'SOS', '   ' => ' ' }
+
   morse_code.split(/(\s{3})/).map do |code|
-        if code == "\s\s\s"
-            morse_code_hash[code]
-        else 
-            code.split.map { |c| morse_code_hash[c] }.join
-        end
-    end.join
+    if code == "\s\s\s"
+      morse_code_hash[code]
+    else
+      code.split.map { |c| morse_code_hash[c] }.join
+    end
+  end.join
 end
 
 puts decode_morse('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
